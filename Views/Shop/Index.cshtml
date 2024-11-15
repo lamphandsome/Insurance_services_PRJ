@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Project_Book_Shop.Models.Product>
+
+<div class="hero-wrap hero-bread" style="background-image: url('images/book_shop-glasses.jpg');">
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Books</span></p>
+                <h1 class="mb-0 bread">Books</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            @foreach (var product in Model)
+            {
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="product">
+                        <a href="@Url.Action("Detail", "Shop", new { id = product.ProductId })" class="img-prod">
+                            <img class="img-fluid" src="@product.CoverImage" alt="@product.Title">
+                            <span class="status">New</span>
+                            <div class="overlay"></div>
+                        </a>
+                        <div class="text py-3 pb-4 px-3 text-center">
+                            <h3><a href="#">@product.Title</a></h3>
+                            <div class="d-flex">
+                                <div class="pricing">
+                                    <p class="price"><span class="mr-2 price-dc">$@product.Price</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
